@@ -1,0 +1,150 @@
+/* ============================================= */
+/* ===         ESTILOS DO BLOG               === */
+/* ============================================= */
+
+/* Importa as mesmas fontes para garantir consistência */
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@500&family=Merriweather:ital,wght@0,400;0,700;1,400&display=swap");
+
+/*
+  Documentação:
+  - Usamos a variável --widget-background para o fundo da página do artigo, criando uma diferenciação sutil do resto do site.
+  - A cor do texto principal (--text-color) é herdada para manter a consistência com o tema (claro/escuro).
+*/
+.content-section .article-content {
+  background-color: var(--widget-background);
+  padding: 3rem;
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+  border: 1px solid var(--border-color);
+}
+
+/*
+  Documentação:
+  - A fonte 'Merriweather' foi escolhida para o corpo do texto por sua excelente legibilidade em telas.
+  - O 'max-width' garante que as linhas não fiquem excessivamente longas, o que melhora muito a experiência de leitura.
+  - O 'text-align: left' é removido para que o estilo padrão seja aplicado, mas pode ser forçado se necessário.
+*/
+.article-content {
+  font-family: "Merriweather", serif;
+  max-width: 800px;
+  margin: 0 auto;
+  text-align: left; /* Garante alinhamento à esquerda para leitura */
+}
+
+/*
+  Documentação:
+  - O título principal (H1) ganha mais destaque com um tamanho maior e uma margem inferior generosa.
+  - A fonte 'Poppins' é mantida para os títulos para criar um contraste visual interessante com o texto do corpo.
+*/
+.article-content h1 {
+  font-family: "Poppins", sans-serif;
+  font-size: 2.8rem;
+  font-weight: 700;
+  line-height: 1.2;
+  margin-bottom: 1rem;
+  color: var(--text-color);
+}
+
+/*
+  Documentação:
+  - Os subtítulos (H2) recebem uma borda inferior para separá-los claramente das seções.
+  - O espaçamento é ajustado para criar um fluxo de leitura lógico.
+*/
+.article-content h2 {
+  font-family: "Poppins", sans-serif;
+  font-size: 1.8rem;
+  margin-top: 2.5rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 2px solid var(--border-color);
+  color: var(--text-color);
+}
+
+/*
+  Documentação:
+  - Aumentamos ligeiramente o tamanho da fonte e o espaçamento entre linhas (line-height) dos parágrafos para não cansar a vista.
+  - A cor do texto é suavizada para um cinza escuro, o que é mais confortável que o preto puro.
+*/
+.article-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--light-text-color);
+  margin-bottom: 1.5rem;
+}
+
+/*
+  Documentação:
+  - Os metadados do artigo (data de publicação) são estilizados para serem discretos, mas legíveis.
+*/
+.article-content .article-meta {
+  font-family: "Poppins", sans-serif;
+  font-size: 0.9rem;
+  color: var(--light-text-color);
+  margin-bottom: 2rem;
+  display: block;
+}
+
+/*
+  Documentação:
+  - Links ganham um sublinhado sutil e uma transição suave, tornando-os mais convidativos ao clique.
+  - A cor é herdada da variável --primary-color para consistência.
+*/
+.article-content a {
+  color: var(--primary-color);
+  text-decoration: none;
+  border-bottom: 2px solid rgba(67, 97, 238, 0.2);
+  transition: var(--transition);
+}
+
+.article-content a:hover {
+  background-color: rgba(67, 97, 238, 0.1);
+  border-bottom-color: var(--primary-color);
+}
+
+/*
+  Documentação:
+  - Listas são ajustadas com mais espaçamento para não parecerem apertadas.
+  - O espaçamento interno (padding-left) cria uma indentação clara.
+*/
+.article-content ul,
+.article-content ol {
+  padding-left: 2rem;
+  margin-bottom: 1.5rem;
+  color: var(--light-text-color);
+}
+
+.article-content li {
+  margin-bottom: 0.8rem;
+  line-height: 1.7;
+}
+
+/*
+  Documentação:
+  - A citação (blockquote) recebe um grande destaque visual com uma barra lateral, fundo e estilo de fonte itálico.
+  - Isso ajuda a quebrar o texto e a chamar atenção para trechos importantes.
+*/
+.article-content blockquote {
+  margin: 2.5rem 0;
+  padding: 1.5rem 2rem;
+  border-left: 5px solid var(--primary-color);
+  background-color: var(--background-color);
+  font-style: italic;
+  font-size: 1.2rem;
+  color: var(--text-color);
+  border-radius: 0 var(--border-radius) var(--border-radius) 0;
+}
+
+.article-content blockquote p {
+  margin-bottom: 0;
+}
+
+/* Estilo para imagens dentro do artigo */
+.article-content img {
+  max-width: 100%;
+  height: auto;
+  border-radius: var(--border-radius);
+  margin: 2rem 0;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+}
