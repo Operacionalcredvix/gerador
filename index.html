@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4896814460874070"
+        crossorigin="anonymous"></script>
+    <title>Gerador Guardião - Gerador de Senhas Seguras</title>
+    <meta name="description"
+        content="Crie senhas fortes e seguras com um clique. Ferramenta gratuita, rápida e privada que gera senhas localmente no seu navegador.">
+    <meta name="keywords"
+        content="gerador de senhas, senha segura, criar senha forte, gerador de senhas online, segurança digital">
+
+    <meta property="og:title" content="Gerador Guardião - Crie Senhas Fortes e Seguras">
+    <meta property="og:description"
+        content="Gere senhas seguras gratuitamente. Ferramenta online que cria combinações complexas para proteger suas contas.">
+    <meta property="og:image" content="https://[SEU_DOMINIO_AQUI]/img/og-image.jpg">
+    <meta property="og:url" content="https://[SEU_DOMINIO_AQUI]">
+    <link rel="canonical" href="https://[SEU_DOMINIO_AQUI]" />
+
+    <link rel="icon" href="/img/guardiao-icon.svg" type="image/svg+xml">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@500&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+
+</head>
+
+<body>
+
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-shield-halved"></i>
+                <h1>Gerador Guardião</h1>
+            </a>
+            <div class="nav-controls">
+                <nav class="nav">
+                    <a href="#artigos" class="nav-link">Aprenda</a>
+                    <a href="#faq" class="nav-link">FAQ</a>
+                    <a href="#sobre" class="nav-link">Sobre</a>
+                </nav>
+                <div class="dark-mode-switch">
+                    <i class="fa-solid fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fa-solid fa-moon"></i>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="generator-section">
+            <div class="container">
+                <div class="counters-container">
+                    <div class="counter">
+                        <i class="fas fa-key"></i>
+                        <div>
+                            <span class="counter-number" id="todayCounter">0</span>
+                            <span class="counter-label">senhas hoje</span>
+                        </div>
+                    </div>
+                    <div class="counter">
+                        <i class="fas fa-key"></i>
+                        <div>
+                            <span class="counter-number" id="totalCounter">0</span>
+                            <span class="counter-label">senhas no total</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="generator-widget">
+                    <h2>Crie uma Senha Forte e Segura</h2>
+
+                    <div class="password-display-container">
+                        <input type="text" id="passwordDisplay" readonly>
+                        <button id="copyButton" class="copy-btn" title="Copiar Senha">
+                            <i class="fa-solid fa-copy"></i>
+                            <span class="tooltip">Copiar</span>
+                        </button>
+                    </div>
+
+                    <div class="strength-indicator-container">
+                        <div class="strength-bar" id="strengthBar"></div>
+                        <span id="strengthText">Força</span>
+                    </div>
+
+                    <div class="options">
+                        <div class="option length-option">
+                            <div class="length-header">
+                                <label for="lengthSlider">Comprimento: <span id="lengthValue">16</span></label>
+                                <div class="length-buttons">
+                                    <button class="length-btn" data-change="-2"><i class="fas fa-minus"></i></button>
+                                    <button class="length-btn" data-change="+2"><i class="fas fa-plus"></i></button>
+                                </div>
+                            </div>
+                            <input type="range" id="lengthSlider" min="8" max="32" value="16">
+                        </div>
+                        <div class="option-grid">
+                            <div class="option">
+                                <label class="option-toggle">
+                                    <input type="checkbox" id="includeUppercase" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="option-label">Maiúsculas (A-Z)</span>
+                                </label>
+                            </div>
+                            <div class="option">
+                                <label class="option-toggle">
+                                    <input type="checkbox" id="includeLowercase" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="option-label">Minúsculas (a-z)</span>
+                                </label>
+                            </div>
+                            <div class="option">
+                                <label class="option-toggle">
+                                    <input type="checkbox" id="includeNumbers" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="option-label">Números (0-9)</span>
+                                </label>
+                            </div>
+                            <div class="option">
+                                <label class="option-toggle">
+                                    <input type="checkbox" id="includeSymbols" checked>
+                                    <span class="toggle-slider"></span>
+                                    <span class="option-label">Símbolos (!@#$%)</span>
+                                </label>
+                            </div>
+                            <div class="option">
+                                <label class="option-toggle">
+                                    <input type="checkbox" id="excludeAmbiguous">
+                                    <span class="toggle-slider"></span>
+                                    <span class="option-label">Excluir Ambíguos (I,l,1,O,0)</span>
+                                </label>
+                            </div>
+                        </div>
+                    </div>
+
+                    <button class="generate-button" id="generateButton">
+                        <i class="fa-solid fa-arrows-rotate"></i>
+                        <span>Gerar Nova Senha</span>
+                    </button>
+                </div>
+
+                <div class="trust-seal">
+                    <div class="trust-icon">
+                        <i class="fa-solid fa-lock"></i>
+                    </div>
+                    <p>Sua privacidade é nossa prioridade. As senhas são geradas <strong>localmente no seu
+                            navegador</strong>. Nenhuma informação é enviada ou armazenada em nossos servidores.</p>
+                </div>
+
+                <div class="social-share">
+                    <span>Compartilhe: </span>
+                    <a href="#" class="social-icon" id="shareTwitter" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-icon" id="shareFacebook" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-facebook"></i></a>
+                    <a href="#" class="social-icon" id="shareWhatsapp" target="_blank" rel="noopener noreferrer"><i
+                            class="fab fa-whatsapp"></i></a>
+                </div>
+            </div>
+        </section>
+        <!-- Matrias -->
+        <section class="resource-section">
+            <div class="container">
+                <h2>Aprenda Mais Sobre Segurança</h2>
+                <p class="section-subtitle">Fortaleça seus conhecimentos com artigos do nosso blog e de fontes
+                    confiáveis da
+                    web.</p>
+
+                <div class="articles-grid">
+
+                    <div class="featured-article-card">
+                        <a href="#" class="featured-article-link">
+                            <img src="img/artigo-destaque.jpg" alt="Imagem de destaque do artigo principal">
+                            <div class="card-content">
+                                <span class="card-category">Nosso Blog</span>
+                                <h3>Título do Seu Incrível Artigo Sobre Segurança</h3>
+                                <p>Coloque aqui uma descrição curta e convidativa sobre o que o leitor encontrará no seu
+                                    artigo
+                                    principal. Mantenha entre 1-2 frases.</p>
+                                <span class="read-more-btn">
+                                    Leia o Artigo <i class="fas fa-arrow-right"></i>
+                                </span>
+                            </div>
+                        </a>
+                    </div>
+
+                    <div class="secondary-articles-grid">
+
+                        <a href="https://www.tecmundo.com.br/seguranca/237141-gerenciador-senhas-usar.htm"
+                            target="_blank" rel="noopener noreferrer" class="article-card">
+                            <div class="card-icon">
+                                <i class="fas fa-book-open"></i>
+                            </div>
+                            <div class="card-details">
+                                <h4>O que é um gerenciador de senhas e como usar?</h4>
+                                <span class="card-source">Fonte: TecMundo</span>
+                            </div>
+                        </a>
+
+                        <a href="https://canaltech.com.br/seguranca/o-que-e-autenticacao-de-dois-fatores-e-por-que-ela-e-tao-importante/"
+                            target="_blank" rel="noopener noreferrer" class="article-card">
+                            <div class="card-icon">
+                                <i class="fas fa-layer-group"></i>
+                            </div>
+                            <div class="card-details">
+                                <h4>O que é autenticação de dois fatores (2FA)?</h4>
+                                <span class="card-source">Fonte: Canaltech</span>
+                            </div>
+                        </a>
+
+                        <a href="https://olhardigital.com.br/2024/05/02/dicas-e-tutoriais/como-criar-e-gerenciar-senhas-mais-seguras/"
+                            target="_blank" rel="noopener noreferrer" class="article-card">
+                            <div class="card-icon">
+                                <i class="fas fa-lightbulb"></i>
+                            </div>
+                            <div class="card-details">
+                                <h4>Como criar e gerenciar senhas mais seguras</h4>
+                                <span class="card-source">Fonte: Olhar Digital</span>
+                            </div>
+                        </a>
+
+                        <a href="https://cartilha.cert.br/fasciculos/senhas/fasciculo-senhas.pdf" target="_blank"
+                            rel="noopener noreferrer" class="article-card">
+                            <div class="card-icon">
+                                <i class="fas fa-graduation-cap"></i>
+                            </div>
+                            <div class="card-details">
+                                <h4>Cartilha de Segurança para Internet (Senhas)</h4>
+                                <span class="card-source">Fonte: CERT.br</span>
+                            </div>
+                        </a>
+
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="artigos" class="content-section">
+            <div class="container">
+                <h2>Por que uma Senha Forte é seu Melhor Escudo Digital?</h2>
+                <p>Em um mundo onde nossas vidas estão cada vez mais online, a segurança de nossas contas digitais é
+                    fundamental. Senhas fracas ou reutilizadas são a porta de entrada para invasões, roubo de identidade
+                    e perdas financeiras. Uma senha forte é a primeira e mais importante barreira de proteção.</p>
+            </div>
+        </section>
+
+        <section id="faq" class="faq-section">
+            <div class="container">
+                <h2>Perguntas Frequentes sobre Segurança de Senhas</h2>
+                <p class="section-subtitle">Tire suas dúvidas e aprenda boas práticas para proteger suas contas online
+                </p>
+
+                <div class="faq-list">
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <h3>Por que preciso de uma senha forte?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Senhas fortes são sua primeira linha de defesa contra hackers. Uma senha fraca pode ser
+                                descoberta em segundos por ataques de força bruta, enquanto uma senha forte pode levar
+                                séculos para ser quebrada. Além disso, evita que criminosos acessem suas contas
+                                pessoais, dados bancários e informações sensíveis.</p>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <h3>O que torna uma senha realmente segura?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Uma senha segura deve ter:</p>
+                            <ul>
+                                <li>Pelo menos 12 caracteres (idealmente 16+)</li>
+                                <li>Combinação de letras maiúsculas e minúsculas</li>
+                                <li>Números e símbolos especiais</li>
+                                <li>Não conter palavras do dicionário ou informações pessoais</li>
+                                <li>Ser única para cada conta importante</li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="faq-card">
+                        <div class="faq-question">
+                            <h3>Posso reutilizar a mesma senha em vários sites?</h3>
+                            <i class="fas fa-chevron-down"></i>
+                        </div>
+                        <div class="faq-answer">
+                            <p>Não é recomendado. Se um site sofrer um vazamento de dados, hackers tentarão usar a mesma
+                                combinação de e-mail/senha em outros serviços. Use um gerenciador de senhas para
+                                armazenar senhas únicas para cada conta.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="sobre" class="about-section">
+            <div class="container">
+                <h2>Sobre o Gerador Guardião</h2>
+                <p>Olá, eu sou <strong>Eduardo Allochio</strong>, o desenvolvedor por trás do Gerador Guardião. Criei
+                    esta ferramenta com uma missão clara: fornecer um recurso gratuito, rápido e seguro para ajudar
+                    qualquer pessoa a fortalecer sua segurança online. Acredito que a privacidade é um direito, e por
+                    isso nossa ferramenta funciona 100% no seu dispositivo, garantindo que você seja o único a ter
+                    acesso às suas senhas.</p>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <i class="fas fa-bolt"></i>
+                        <h3>Rápido</h3>
+                        <p>Gera senhas complexas em milissegundos</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-shield-alt"></i>
+                        <h3>Seguro</h3>
+                        <p>Processamento local, sem armazenamento externo</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-universal-access"></i>
+                        <h3>Acessível</h3>
+                        <p>Interface simples e intuitiva para todos</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="logo">
+                        <i class="fa-solid fa-shield-halved"></i>
+                        <h2>Gerador Guardião</h2>
+                    </div>
+                    <p>Protegendo sua vida digital, uma senha de cada vez.</p>
+                </div>
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h3>Links</h3>
+                        <a href="#artigos">Aprenda</a>
+                        <a href="#faq">FAQ</a>
+                        <a href="#sobre">Sobre</a>
+                    </div>
+                    <div class="links-column">
+                        <h3>Legal</h3>
+                        <a href="politica-privacidade.html">Política de Privacidade</a>
+                        <a href="termos-uso.html">Termos de Uso</a>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© <span id="current-year">2025</span> Gerador Guardião - Todos os direitos reservados.</p>
+                <p>Desenvolvido por - Eduardo Allochio.</p>
+                <div class="social-links">
+                    <a href="https://www.instagram.com/eduallochio/" target="_blank" rel="noopener noreferrer"
+                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="https://github.com/eduallochio" target="_blank" rel="noopener noreferrer"
+                        aria-label="GitHub"><i class="fab fa-github"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div id="toastNotification" class="toast">Senha copiada com sucesso!</div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

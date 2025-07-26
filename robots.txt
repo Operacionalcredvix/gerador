@@ -1,0 +1,5 @@
+# robots.txt para o Gerador Guardião
+User-agent: *
+Allow: /
+
+Sitemap: https://geradorguardiao.com.br/sitemap.xml
