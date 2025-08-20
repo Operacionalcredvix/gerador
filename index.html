@@ -17,15 +17,15 @@
     <meta property="og:description"
         content="Gere senhas seguras gratuitamente. Ferramenta online que cria combinações complexas para proteger suas contas.">
 
-    <link rel="icon" href="/img/guardiao-icon.svg" type="image/svg+xml">
+    <link rel="icon" href="img/guardiao-icon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
         href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto+Mono:wght@500&display=swap"
         rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    
     <link rel="stylesheet" href="css/style.css">
-
     <link rel="stylesheet" href="css/blog.css">
 
 </head>
@@ -40,6 +40,7 @@
             </a>
             <div class="nav-controls">
                 <nav class="nav">
+                    <a href="pages/ferramentas.html" class="nav-link">Ferramentas</a>
                     <a href="#artigos" class="nav-link">Aprenda</a>
                     <a href="#faq" class="nav-link">FAQ</a>
                     <a href="#sobre" class="nav-link">Sobre</a>
@@ -173,7 +174,32 @@
                 </div>
             </div>
         </section>
-        <!-- Matrias -->
+        
+        <section id="ferramentas" class="content-section">
+            <div class="container">
+                <h2>Nossas Ferramentas Úteis</h2>
+                <p>Além do gerador de senhas, oferecemos outras ferramentas para facilitar seu dia a dia digital, todas gratuitas e seguras.</p>
+                <div class="features-grid" style="margin-top: 2rem;">
+                    <div class="feature-card">
+                        <i class="fas fa-link"></i>
+                        <h3>Encurtador de URL</h3>
+                        <p>Transforme links longos em URLs curtas e fáceis de compartilhar.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fab fa-whatsapp"></i>
+                        <h3>Gerador de Link WhatsApp</h3>
+                        <p>Crie links diretos para conversas no WhatsApp com mensagens prontas.</p>
+                    </div>
+                    <div class="feature-card">
+                        <i class="fas fa-qrcode"></i>
+                        <h3>Gerador de QR Code</h3>
+                        <p>Converta textos ou links em QR Codes de forma rápida e simples.</p>
+                    </div>
+                </div>
+                <a href="pages/ferramentas.html" class="generate-button" style="margin-top: 2rem; max-width: 400px; margin-left: auto; margin-right: auto;">Acessar Ferramentas</a>
+            </div>
+        </section>
+
         <section class="resource-section">
             <div class="container">
                 <h2>Aprenda Mais Sobre Segurança</h2>
@@ -339,14 +365,15 @@
                 <div class="footer-links">
                     <div class="links-column">
                         <h3>Links</h3>
+                        <a href="pages/ferramentas.html">Ferramentas</a>
                         <a href="#artigos">Aprenda</a>
                         <a href="#faq">FAQ</a>
                         <a href="#sobre">Sobre</a>
                     </div>
                     <div class="links-column">
                         <h3>Legal</h3>
-                        <a href="politica-privacidade.html">Política de Privacidade</a>
-                        <a href="termos-uso.html">Termos de Uso</a>
+                        <a href="pages/politica-privacidade.html">Política de Privacidade</a>
+                        <a href="pages/termos-uso.html">Termos de Uso</a>
                     </div>
                 </div>
             </div>
@@ -366,7 +393,8 @@
     <div id="toastNotification" class="toast">Senha copiada com sucesso!</div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="script.js"></script>
+    <script src="js/script.js"></script>
+    <script src="js/theme-switcher.js"></script>
 </body>
 
 </html>
