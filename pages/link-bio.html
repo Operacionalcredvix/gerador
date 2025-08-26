@@ -1,17 +1,21 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gerador de Link na Bio - Gerador Guardião</title>
-    <meta name="description" content="Crie sua própria página de links para usar na bio de redes sociais. Gratuito e personalizável.">
+    <meta name="description"
+        content="Crie sua própria página de links para usar na bio de redes sociais. Gratuito e personalizável.">
     <link rel="icon" href="../img/guardiao-icon.svg" type="image/svg+xml">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
-    <link rel="stylesheet" href="../css/link-bio.css"> </head>
+    <link rel="stylesheet" href="../css/link-bio.css">
+</head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -24,6 +28,14 @@
                     <a href="ferramentas.html" class="nav-link">Ferramentas</a>
                     <a href="../index.html#artigos" class="nav-link">Aprenda</a>
                 </nav>
+                <div class="dark-mode-switch">
+                    <i class="fa-solid fa-sun"></i>
+                    <label class="switch">
+                        <input type="checkbox" id="darkModeToggle">
+                        <span class="slider round"></span>
+                    </label>
+                    <i class="fa-solid fa-moon"></i>
+                </div>
             </div>
         </div>
     </header>
@@ -41,27 +53,54 @@
                         </div>
                         <div class="form-group">
                             <label for="bioDescription">Descrição</label>
-                            <textarea id="bioDescription" rows="2" placeholder="Ex: Desenvolvedor Web | Criador de Ferramentas"></textarea>
+                            <textarea id="bioDescription" rows="2"
+                                placeholder="Ex: Desenvolvedor Web | Criador de Ferramentas"></textarea>
                         </div>
                     </div>
 
                     <div class="control-group">
-                        <h3>Links</h3>
+                        <h3>Links <span id="linkCounter" class="link-counter"></span></h3>
                         <div id="linksContainer">
-                            </div>
-                        <button id="addLinkBtn" class="tool-button secondary-btn"><i class="fas fa-plus"></i> Adicionar Novo Link</button>
+                        </div>
+                        <button id="addLinkBtn" class="tool-button secondary-btn"><i class="fas fa-plus"></i> Adicionar
+                            Novo Link</button>
                     </div>
 
                     <div class="control-group">
                         <h3>Finalizar</h3>
-                        <button id="generatePageBtn" class="tool-button"><i class="fas fa-magic"></i> Gerar Minha Página</button>
-                        <div id="finalLinkResult" class="result-box" style="display: none;"></div>
+                        <div class="form-group">
+                            <label for="bioAlias">Alias Personalizado para o Link (opcional)</label>
+                            <input type="text" id="bioAlias" placeholder="Ex: meus-links">
+                        </div>
+                        <button id="generatePageBtn" class="tool-button"><i class="fas fa-magic"></i> Gerar Minha
+                            Página</button>
+                        <div id="finalLinkResult" class="final-result-wrapper" style="display: none;">
+                            <div class="result-item">
+                                <label>Link da Página (Longo)</label>
+                                <div class="result-input-group">
+                                    <input type="text" id="longUrlOutput" readonly>
+                                    <button class="copy-btn-small" data-target="longUrlOutput" title="Copiar">
+                                        <i class="fa-solid fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="result-item">
+                                <label>Link Encurtado (Recomendado)</label>
+                                <div class="result-input-group">
+                                    <input type="text" id="shortUrlOutput" value="Gerando..." readonly>
+                                    <button class="copy-btn-small" data-target="shortUrlOutput" title="Copiar">
+                                        <i class="fa-solid fa-copy"></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
                 <div class="tool-preview">
                     <div class="mobile-frame">
-                        <iframe id="previewFrame" src="link-page.html" title="Pré-visualização da Página de Links"></iframe>
+                        <iframe id="previewFrame" src="link-page.html"
+                            title="Pré-visualização da Página de Links"></iframe>
                     </div>
                 </div>
             </div>
@@ -77,8 +116,11 @@
         </div>
     </footer>
 
-    <script src="../js/link-bio-builder.js"></script> <script>
-        document.getElementById('current-year').textContent = new Date().getFullYear();
+    <script src="../js/link-bio-builder.js"></script>
+    <script src="../js/theme-switcher.js"></script>
+    <script>
+        document.getElementById( 'current-year' ).textContent = new Date().getFullYear();
     </script>
 </body>
+
 </html>
