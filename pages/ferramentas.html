@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -15,8 +16,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
     <link rel="stylesheet" href="../css/style.css">
     <link rel="stylesheet" href="../css/ferramentas.css">
-
 </head>
+
 <body>
     <header class="header">
         <div class="container">
@@ -45,24 +46,82 @@
     <main>
         <section class="tools-section">
             <div class="container">
+                <div class="tool-widget-promo">
+                    <h2><i class="fas fa-star"></i> Nova Ferramenta: Gerador de Link na Bio</h2>
+                    <p>Crie uma página elegante e personalizável para agrupar todos os seus links importantes. Perfeito
+                        para usar em perfis de redes sociais!</p>
+                    <a href="link-bio.html" class="tool-button promo-button">Criar Minha Página de Links</a>
+                </div>
                 <div id="url-shortener" class="tool-widget">
                     <h2>Encurtador de URL</h2>
-                    <div class="form-group"><label for="longUrl">URL Longa</label><input type="url" id="longUrl" placeholder="https://exemplo.com/sua-url-longa"></div>
+                    <div class="form-group"><label for="longUrl">URL Longa</label><input type="url" id="longUrl"
+                            placeholder="https://exemplo.com/sua-url-longa"></div>
+                    <div class="form-group"><label for="customAlias">Link Personalizado (opcional)</label><input
+                            type="text" id="customAlias" placeholder="ex: meulink"></div>
                     <button id="shortenUrlBtn" class="tool-button">Encurtar URL</button>
                     <div id="shortUrlResult" class="result-box" style="display: none;"></div>
                 </div>
                 <div id="whatsapp-generator" class="tool-widget">
                     <h2>Gerador de Link para WhatsApp</h2>
-                    <div class="form-group"><label for="whatsappNumber">Número (com código do país, ex: 5527999999999)</label><input type="tel" id="whatsappNumber" placeholder="5527999999999"></div>
-                    <div class="form-group"><label for="whatsappMessage">Mensagem (opcional)</label><textarea id="whatsappMessage" rows="3" placeholder="Olá! Gostaria de mais informações."></textarea></div>
+                    <div class="form-group"><label for="whatsappNumber">Número (com código do país, ex:
+                            5527999999999)</label><input type="tel" id="whatsappNumber" placeholder="5527999999999">
+                    </div>
+                    <div class="form-group"><label for="whatsappMessage">Mensagem (opcional)</label><textarea
+                            id="whatsappMessage" rows="3" placeholder="Olá! Gostaria de mais informações."></textarea>
+                    </div>
                     <button id="generateWaLinkBtn" class="tool-button">Gerar Link</button>
                     <div id="waLinkResult" class="result-box" style="display: none;"></div>
                 </div>
                 <div id="qrcode-generator" class="tool-widget">
-                    <h2>Gerador de QR Code</h2>
-                    <div class="form-group"><label for="qrText">Texto ou URL</label><input type="text" id="qrText" placeholder="Digite o texto ou cole a URL aqui"></div>
+                    <h2>Gerador de QR Code Personalizado</h2>
+                    <div class="form-group"><label for="qrText">Texto ou URL</label><input type="text" id="qrText"
+                            placeholder="Digite o texto ou cole a URL aqui"></div>
+
+                    <div class="qr-options-grid">
+                        <div class="form-group"><label for="qrColor">Cor do QR Code</label><input type="color"
+                                id="qrColor" value="#000000"></div>
+                        <div class="form-group"><label for="qrBgColor">Cor do Fundo</label><input type="color"
+                                id="qrBgColor" value="#ffffff"></div>
+                        <div class="form-group">
+                            <label for="qrDotStyle">Estilo dos Pontos</label>
+                            <select id="qrDotStyle" class="form-control">
+                                <option value="square">Quadrado</option>
+                                <option value="rounded" selected>Arredondado</option>
+                                <option value="dots">Pontos</option>
+                                <option value="classy">Clássico</option>
+                                <option value="classy-rounded">Clássico Arredondado</option>
+                                <option value="extra-rounded">Extra Arredondado</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Logotipo (opcional)</label>
+                            <div class="logo-controls">
+                                <input type="file" id="qrLogo" accept="image/png, image/jpeg, image/svg+xml"
+                                    style="display: none;">
+                                <label for="qrLogo" class="tool-button logo-btn">
+                                    <i class="fas fa-upload"></i> Escolher Arquivo
+                                </label>
+                                <button id="removeLogoBtn" class="tool-button logo-btn remove-btn"
+                                    style="display: none;">
+                                    <i class="fas fa-trash"></i> Remover
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+
                     <button id="generateQrBtn" class="tool-button">Gerar QR Code</button>
-                    <div id="qrcode" class="result-box" style="display: none;"></div>
+
+                    <div id="qrcode" class="result-box" style="display: none; padding: 2rem;"></div>
+
+                    <div class="download-section" id="qrDownloadSection" style="display: none;">
+                        <div class="form-group">
+                            <label for="qrFileName">Nome do Arquivo</label>
+                            <input type="text" id="qrFileName" placeholder="qrcode">
+                        </div>
+                        <button id="downloadQrBtn" class="tool-button download-btn">
+                            <i class="fas fa-download"></i> Baixar QR Code (PNG)
+                        </button>
+                    </div>
                 </div>
             </div>
         </section>
@@ -70,43 +129,17 @@
 
     <footer class="footer">
         <div class="container">
-            <div class="footer-content">
-                <div class="footer-brand">
-                    <div class="logo">
-                        <i class="fa-solid fa-shield-halved"></i>
-                        <h2>Gerador Guardião</h2>
-                    </div>
-                    <p>Protegendo sua vida digital, uma senha de cada vez.</p>
-                </div>
-                <div class="footer-links">
-                    <div class="links-column">
-                        <h3>Links</h3>
-                        <a href="../index.html#artigos">Aprenda</a>
-                        <a href="../index.html#faq">FAQ</a>
-                        <a href="../index.html#sobre">Sobre</a>
-                    </div>
-                    <div class="links-column">
-                        <h3>Legal</h3>
-                        <a href="politica-privacidade.html">Política de Privacidade</a>
-                        <a href="termos-uso.html">Termos de Uso</a>
-                    </div>
-                </div>
-            </div>
             <div class="footer-bottom">
                 <p>© <span id="current-year">2025</span> Gerador Guardião - Todos os direitos reservados.</p>
                 <p>Desenvolvido por - Eduardo Allochio.</p>
-                <div class="social-links">
-                    <a href="https://www.instagram.com/eduallochio/" target="_blank" rel="noopener noreferrer"
-                        aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-                    <a href="https://github.com/eduallochio" target="_blank" rel="noopener noreferrer"
-                        aria-label="GitHub"><i class="fab fa-github"></i></a>
-                </div>
             </div>
         </div>
     </footer>
 
-    <script src="https://cdn.jsdelivr.net/npm/qrcodejs@1.0.0/qrcode.min.js"></script>
+    <script type="text/javascript" src="https://unpkg.com/qr-code-styling@1.5.0/lib/qr-code-styling.js"></script>
+
     <script src="../js/ferramentas.js"></script>
     <script src="../js/theme-switcher.js"></script>
 </body>
+
 </html>
