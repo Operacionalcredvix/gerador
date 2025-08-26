@@ -8,34 +8,58 @@ document.addEventListener('DOMContentLoaded', () => {
     // --- Encurtador de URL ---
     const shortenUrlBtn = document.getElementById('shortenUrlBtn');
     const longUrlInput = document.getElementById('longUrl');
+    const customAliasInput = document.getElementById('customAlias');
     const shortUrlResult = document.getElementById('shortUrlResult');
 
     shortenUrlBtn.addEventListener('click', async () => {
         const longUrl = longUrlInput.value;
+        const customAlias = customAliasInput.value;
+
         if (!longUrl || !isValidUrl(longUrl)) {
             alert('Por favor, insira uma URL válida.');
             return;
         }
 
         try {
-            // Usando a API gratuita do TinyURL (não precisa de chave)
-            const apiUrl = `https://tinyurl.com/api-create.php?url=${encodeURIComponent(longUrl)}`;
-            const response = await fetch(apiUrl);
-            
-            if (!response.ok) {
-                throw new Error('A resposta da rede não foi bem-sucedida.');
+            let apiUrl = `https://is.gd/create.php?format=json&url=${encodeURIComponent(longUrl)}`;
+            if (customAlias) {
+                apiUrl += `&shorturl=${encodeURIComponent(customAlias)}`;
             }
 
-            const shortUrl = await response.text();
-            shortUrlResult.innerHTML = `<strong>URL Encurtada:</strong> <a href="${shortUrl}" target="_blank">${shortUrl}</a>`;
-            shortUrlResult.style.display = 'block';
+            const response = await fetch(apiUrl);
+            const data = await response.json();
+
+            if (data.shorturl) {
+                const shortUrl = data.shorturl;
+                
+                // Extrai o código do link gerado (ex: 'minhalojahelp')
+                const shortCode = shortUrl.split('/').pop();
+                
+                // Cria o texto personalizado 'gg/...' e o link real
+                const displayText = `gg/${shortCode}`;
+                
+                shortUrlResult.innerHTML = `<strong>URL Personalizada:</strong> <a href="${shortUrl}" target="_blank">${displayText}</a>`;
+                shortUrlResult.style.display = 'block';
+
+            } else if (data.errorcode) {
+                throw new Error(data.errormessage || 'Não foi possível encurtar a URL.');
+            } else {
+                throw new Error('Ocorreu um erro desconhecido.');
+            }
 
         } catch (error) {
             console.error('Erro ao encurtar URL:', error);
-            shortUrlResult.textContent = 'Erro ao encurtar a URL. Tente novamente.';
+            let userErrorMessage = 'Erro ao encurtar a URL. Tente novamente.';
+            if (error.message.includes('already exists')) {
+                userErrorMessage = 'Erro: Este alias personalizado já está em uso. Por favor, escolha outro.';
+            } else if (error.message) {
+                userErrorMessage = `Erro: ${error.message}`;
+            }
+            shortUrlResult.textContent = userErrorMessage;
             shortUrlResult.style.display = 'block';
         }
     });
+
 
     // --- Gerador de Link para WhatsApp ---
     const generateWaLinkBtn = document.getElementById('generateWaLinkBtn');
@@ -70,11 +94,9 @@ document.addEventListener('DOMContentLoaded', () => {
             return;
         }
 
-        // Limpa o contêiner antes de gerar um novo QR Code
         qrcodeContainer.innerHTML = '';
         qrcodeContainer.style.display = 'block';
 
-        // Cria o QR Code
         qrcode = new QRCode(qrcodeContainer, {
             text: text,
             width: 128,
