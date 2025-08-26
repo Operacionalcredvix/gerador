@@ -1,0 +1,193 @@
+.tools-section {
+    padding: 4rem 0;
+}
+
+.tool-widget {
+    background-color: var(--widget-background);
+    padding: 2.5rem;
+    border-radius: var(--border-radius);
+    box-shadow: var(--box-shadow);
+    border: 1px solid var(--border-color);
+    margin-bottom: 2rem;
+}
+
+.tool-widget h2 {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    font-weight: 700;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.form-group {
+    margin-bottom: 1.5rem;
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--text-color);
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    transition: var(--transition);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+.tool-button {
+    width: 100%;
+    padding: 1rem;
+    background: var(--gradient-primary);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transition);
+}
+
+.tool-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(67, 97, 238, 0.3);
+}
+
+.result-box {
+    margin-top: 1.5rem;
+    padding: 1rem;
+    background-color: var(--background-color);
+    border: 1px dashed var(--border-color);
+    border-radius: var(--border-radius);
+    word-wrap: break-word;
+    text-align: center;
+}
+
+#qrcode {
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Estilos para as Opções de QR Code */
+.qr-options-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.form-group input[type="color"] {
+    width: 100%;
+    height: 40px;
+    padding: 0.2rem;
+    border-radius: var(--border-radius);
+    border: 1px solid var(--border-color);
+    cursor: pointer;
+}
+
+/* Estilos para a Seção de Download */
+.download-section {
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid var(--border-color);
+}
+
+.download-btn {
+    background: var(--success-color);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.download-btn:hover {
+    background: #3ac0e0; /* Um pouco mais escuro que --success-color */
+    box-shadow: 0 5px 15px rgba(76, 201, 240, 0.3);
+}
+
+/* Ajuste no Canvas do QR Code */
+#qrcode canvas {
+    border-radius: var(--border-radius);
+}
+
+/* Estilos para o menu de seleção */
+.form-control {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid var(--border-color);
+    border-radius: var(--border-radius);
+    background-color: var(--background-color);
+    color: var(--text-color);
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3e%3cpath fill='none' stroke='%23343a40' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' d='M2 5l6 6 6-6'/%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right 0.75rem center;
+    background-size: 16px 12px;
+}
+
+.form-control:focus {
+    outline: none;
+    border-color: var(--primary-color);
+    box-shadow: 0 0 0 2px rgba(67, 97, 238, 0.2);
+}
+
+/* Estilos para os controles de logo */
+.logo-controls {
+    display: flex;
+    gap: 10px;
+}
+
+.logo-btn {
+    padding: 0.8rem 1rem;
+    font-size: 0.9rem;
+    flex-grow: 1;
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+}
+
+.remove-btn {
+    background: #f72585; /* Cor de perigo/remoção */
+}
+.remove-btn:hover {
+    background: #d41d70;
+}
+
+/* =================================== */
+/* === Responsividade Ferramentas === */
+/* =================================== */
+
+@media (max-width: 768px) {
+    .qr-options-grid {
+        grid-template-columns: 1fr; /* Muda para uma única coluna */
+        gap: 1.2rem; /* Ajusta o espaçamento para a visualização vertical */
+    }
+
+    .form-group {
+        /* Garante que o texto dos labels não fique quebrado de forma estranha */
+        text-align: left; 
+    }
+}

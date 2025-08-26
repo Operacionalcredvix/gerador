@@ -72,24 +72,6 @@ async function initializeSupabase() {
     }
 }
 
-// --- Configuração do Dark Mode ---
-function setupDarkMode() {
-    try {
-        const darkModeToggle = document.getElementById('darkModeToggle');
-        if (!darkModeToggle) return;
-
-        const isDarkMode = localStorage.getItem('darkMode') === 'true';
-        document.body.classList.toggle('dark-mode', isDarkMode);
-        darkModeToggle.checked = isDarkMode;
-
-        darkModeToggle.addEventListener('change', () => {
-            document.body.classList.toggle('dark-mode');
-            localStorage.setItem('darkMode', darkModeToggle.checked);
-        });
-    } catch (error) {
-        console.error('Erro ao configurar dark mode:', error);
-    }
-}
 
 // --- Funções de Geração de Senha ---
 function generatePassword(elements, charSets) {
@@ -445,7 +427,7 @@ async function initializeApp() {
             ambiguous: 'Il1O0'
         };
 
-        setupDarkMode();
+
         setupEventListeners(elements, charSets);
         setupFAQ();
         setupSocialSharing(); // Chama a nova função
