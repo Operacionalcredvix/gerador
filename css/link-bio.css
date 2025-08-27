@@ -94,13 +94,15 @@
 }
 
 .secondary-btn {
-  background: var(--primary-color);
   width: 100%;
   border-radius: 10px;
+  background: var(--widget-background);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color);
 }
 .secondary-btn:hover {
-  background: var(--primary-hover);
-  box-shadow: none;
+  background: rgba(67, 97, 238, 0.1);
+  border-style: solid;
 }
 
 /* Estilos da Pré-visualização */
@@ -299,4 +301,137 @@ body.dark-mode .link-page-links a:hover {
   font-weight: 500;
   color: var(--light-text-color);
   margin-left: 0.5rem;
+}
+/* Estilos para a Foto de Perfil na Página Final */
+.link-page-profile-pic {
+  width: 96px;
+  height: 96px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin: 0 auto 1rem auto;
+  border: 2px solid #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+body.dark-mode .link-page-profile-pic {
+  border-color: #333;
+}
+
+/* Estilos para os Ícones de Redes Sociais */
+.link-page-socials {
+  margin-top: 2rem;
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+}
+
+.link-page-socials a {
+  font-size: 1.8rem;
+  color: #65676b;
+  transition: all 0.2s ease;
+}
+
+.link-page-socials a:hover {
+  transform: scale(1.2);
+  color: #1c1e21;
+}
+
+body.dark-mode .link-page-socials a {
+  color: #a0a0a0;
+}
+
+body.dark-mode .link-page-socials a:hover {
+  color: #e0e0e0;
+}
+/* Estilos para o novo botão de Adicionar */
+.add-new-btn {
+  background: var(--widget-background);
+  color: var(--primary-color);
+  border: 2px solid var(--primary-color); /* A única mudança é aqui: de dashed para solid */
+}
+
+.add-new-btn:hover {
+  background: rgba(67, 97, 238, 0.1);
+  border-style: solid;
+}
+
+/* Estilos para a Janela Modal */
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 2000;
+  backdrop-filter: blur(5px);
+}
+
+.modal-content {
+  background-color: var(--widget-background);
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  width: 90%;
+  max-width: 500px;
+  box-shadow: var(--box-shadow);
+}
+
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.modal-header h2 {
+  margin: 0;
+}
+
+.close-modal-btn {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  cursor: pointer;
+  color: var(--light-text-color);
+}
+
+.modal-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(100px, 1fr));
+  gap: 1rem;
+}
+
+.social-icon-choice {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 1rem;
+  border-radius: var(--border-radius);
+  background-color: var(--background-color);
+  border: 1px solid var(--border-color);
+  cursor: pointer;
+  transition: var(--transition);
+  text-align: center;
+}
+
+.social-icon-choice:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--box-shadow);
+  border-color: var(--primary-color);
+  color: var(--primary-color);
+}
+
+.social-icon-choice i {
+  font-size: 2rem;
+}
+
+.social-icon-choice span {
+  font-size: 0.9rem;
+  font-weight: 500;
 }
