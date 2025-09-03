@@ -67,7 +67,7 @@ async function initializeSupabase() {
     } catch (error) {
         console.error('Erro ao inicializar Supabase:', error);
         supabaseInitialized = false;
-        showToast('Modo offline ativado', true);
+        showToast('Offline: os contadores podem não estar atualizados', true); // MENSAGEM MELHORADA
         return false;
     }
 }
@@ -241,7 +241,7 @@ async function getPasswordStats(elements) {
     updateCounterDisplays(stats, elements);
 }
 
-// **LÓGICA CORRIGIDA** para incrementar os contadores
+// LÓGICA CORRIGIDA para incrementar os contadores
 async function incrementCounters(elements) {
     const today = new Date().toDateString();
     
@@ -396,6 +396,63 @@ function updateCopyrightYear() {
     }
 }
 
+// **NOVA FUNÇÃO** para controlar os modais de privacidade e termos
+function setupModals() {
+    try {
+        // Seleciona todos os elementos necessários
+        const privacyModal = document.getElementById('privacyModal');
+        const termsModal = document.getElementById('termsModal');
+        
+        const openPrivacyBtn = document.getElementById('openPrivacyModal');
+        const openTermsBtn = document.getElementById('openTermsModal');
+
+        // Seleciona todos os botões de fechar (pode haver mais de um)
+        const closeButtons = document.querySelectorAll('.close-modal-btn');
+
+        // Função para abrir um modal
+        const openModal = (modalElement) => {
+            if (modalElement) {
+                modalElement.classList.add('show');
+            }
+        };
+
+        // Função para fechar qualquer modal que esteja aberto
+        const closeModal = () => {
+            if (privacyModal && privacyModal.classList.contains('show')) {
+                privacyModal.classList.remove('show');
+            }
+            if (termsModal && termsModal.classList.contains('show')) {
+                termsModal.classList.remove('show');
+            }
+        };
+
+        // Adiciona os eventos de clique para abrir os modais
+        openPrivacyBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede que a página suba para o topo!
+            openModal(privacyModal);
+        });
+
+        openTermsBtn.addEventListener('click', (event) => {
+            event.preventDefault(); // Impede que a página suba para o topo!
+            openModal(termsModal);
+        });
+
+        // Adiciona o evento de clique para todos os botões de fechar
+        closeButtons.forEach(button => {
+            button.addEventListener('click', closeModal);
+        });
+
+        // Fecha o modal se o utilizador clicar fora da caixa de conteúdo
+        window.addEventListener('click', (event) => {
+            if (event.target === privacyModal || event.target === termsModal) {
+                closeModal();
+            }
+        });
+
+    } catch (error) {
+        console.error('Erro ao configurar os modais:', error);
+    }
+}
 
 // --- Inicialização da Aplicação ---
 async function initializeApp() {
@@ -430,8 +487,9 @@ async function initializeApp() {
 
         setupEventListeners(elements, charSets);
         setupFAQ();
-        setupSocialSharing(); // Chama a nova função
-        updateCopyrightYear(); // Chama a função corrigida
+        setupModals(); // CHAMADA DA NOVA FUNÇÃO
+        setupSocialSharing();
+        updateCopyrightYear();
         
         await getPasswordStats(elements);
         

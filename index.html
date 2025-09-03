@@ -380,7 +380,7 @@
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>© <span id="current-year">2025</span> Gerador Guardião - Todos os direitos reservados.</p>
+                <p>© <span id="current-year"></span> Gerador Guardião - Todos os direitos reservados.</p>
                 <p>Desenvolvido por - Eduardo Allochio.</p>
                 <div class="social-links">
                     <a href="https://www.instagram.com/eduallochio/" target="_blank" rel="noopener noreferrer"
@@ -401,7 +401,7 @@
                 <button class="close-modal-btn">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Última atualização: 25 de julho de 2025</strong></p>
+                <p><strong class="dynamic-date">Última atualização: </strong></p>
                 <p>A sua privacidade é de extrema importância para nós, do Gerador Guardião. Esta política de
                     privacidade descreve os tipos de informações que coletamos e como as utilizamos.</p>
                 <h3>1. Informações que Coletamos</h3>
@@ -435,7 +435,7 @@
                 <button class="close-modal-btn">&times;</button>
             </div>
             <div class="modal-body">
-                <p><strong>Última atualização: 25 de julho de 2025</strong></p>
+                <p><strong class="dynamic-date">Última atualização: </strong></p>
                 <p>Bem-vindo ao Gerador Guardião! Ao aceder e usar o nosso site, você concorda em cumprir e aceitar os
                     seguintes termos e condições de uso.</p>
                 <h3>1. Descrição do Serviço</h3>
@@ -456,8 +456,16 @@
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
-    <script src="js/script.js"></script>
-    <script src="js/theme-switcher.js"></script>
+    <script>
+        // Script para atualizar as datas nos modais
+        document.querySelectorAll('.dynamic-date').forEach(element => {
+            const today = new Date();
+            const options = { year: 'numeric', month: 'long', day: 'numeric' };
+            element.innerHTML += today.toLocaleDateString('pt-BR', options);
+        });
+    </script>
+    <script src="js/script.js" async defer></script>
+    <script src="js/theme-switcher.js" async defer></script>
 </body>
 
 </html>
